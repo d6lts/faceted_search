@@ -1403,7 +1403,7 @@ function theme_faceted_search_ui_category($category, $path) {
 
 function theme_faceted_search_ui_more($path) {
   if ($path) {
-    return l(t('more...'), $path, array('class' => 'faceted-search-more'));
+    return l(t('more...'), $path, array('attributes' => array('class' => 'faceted-search-more')));
   }
   else {
     return '<span class="faceted-search-more">'. t('more...') .'</span>';
