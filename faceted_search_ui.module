@@ -762,6 +762,7 @@ function faceted_search_ui_form($form_state, $search) {
     '#default_value' => '',
     '#size' => $current_stage == 'select' ? 35 : 20,
     '#maxlength' => 255,
+    '#attributes' => array('alt' => t('Keywords')),
   );
 
   // TODO: This ought to be cached and greatly simplified... {
