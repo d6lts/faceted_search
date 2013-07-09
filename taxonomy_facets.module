@@ -130,9 +130,9 @@ function taxonomy_facets_faceted_search_collect(&$facets, $domain, $env, $select
     case 'facets':
       $vocabularies = taxonomy_get_vocabularies();
       foreach ($vocabularies as $vocabulary) {
-        _taxonomy_facets_localize_vocabulary($vocabulary);
         // If the vocabulary's corresponding facet is allowed.
         if (!isset($selection) || isset($selection['taxonomy'][$vocabulary->vid])) {
+          _taxonomy_facets_localize_vocabulary($vocabulary);
           $facets[] = new taxonomy_facet($vocabulary);
         }
       }
