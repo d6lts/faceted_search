@@ -350,7 +350,7 @@ class faceted_search_facet extends faceted_search_filter {
    * @return
    *   FALSE if this filter can't have root categories.
    */
-  function build_root_categories_query() {
+  function build_root_categories_query(&$query) {
     return FALSE;
   }
 
