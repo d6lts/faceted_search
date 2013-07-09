@@ -19,7 +19,7 @@ function faceted_search_list_page() {
     // Check that the base_path is a valid setting, because it is a
     // faceted_search_ui thing that faceted_search, as the parent class,
     // should normally not know about.
-    $display = isset($env->settings['base_path']) ? l($env->name, $env->settings['base_path']) : $name; 
+    $display = isset($env->settings['base_path']) ? l($env->name, $env->settings['base_path']) : $env->name;
     $items[$env->name] = array($display, filter_xss_admin($env->description), theme('links', $links));
   }
   if (count($items)) {
