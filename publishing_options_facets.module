@@ -75,14 +75,14 @@ class publishing_options_facet extends faceted_search_facet {
    * @param $state
    *   Optional. State to set as this facet's active category.
    */
-  function publishing_options_facet($option_name, $label, $state = NULL) {
+  function __construct($option_name, $label, $state = NULL) {
     $this->_option_name = $option_name;
     $this->_label = $label;
     $active_path = array();
     if ($state) {
       $active_path[] = new publishing_options_facet_category($this->_option_name, $state);
     }
-    parent::faceted_search_facet($this->_option_name, $active_path);
+    parent::__construct($this->_option_name, $active_path);
   }
 
   function get_id() {
@@ -175,8 +175,8 @@ class publishing_options_facet_category extends faceted_search_category {
   /**
    * Constructor.
    */
-  function publishing_options_facet_category($option_name, $status, $count = NULL) {
-    parent::faceted_search_category($count);
+  function __construct($option_name, $status, $count = NULL) {
+    parent::__construct($count);
     $this->_option_name = $option_name;
     $this->_status = $status;
   }

@@ -149,12 +149,12 @@ class content_type_facet extends faceted_search_facet {
    * @param $type
    *   Optional. Type to set as this facet's active category.
    */
-  function content_type_facet($types, $type = NULL) {
+  function __construct($types, $type = NULL) {
     $active_path = array();
     if ($type) {
       $active_path[] = new content_type_facet_category($type, node_get_types('name', $type));
     }
-    parent::faceted_search_facet('content_type', $active_path);
+    parent::__construct('content_type', $active_path);
     $this->_types = $types;
   }
 
@@ -251,8 +251,8 @@ class content_type_facet_category extends faceted_search_category {
   /**
    * Constructor.
    */
-  function content_type_facet_category($type, $name, $count = NULL) {
-    parent::faceted_search_category($count);
+  function __construct($type, $name, $count = NULL) {
+    parent::__construct($count);
     $this->_type = $type;
     $this->_name = $name;
     faceted_search_localize_type($this->_type, $this->_name);

@@ -49,7 +49,7 @@ class faceted_search_filter {
    *   active category itself. Defaults to an empty array, meaning no active
    *   category.
    */
-  function faceted_search_filter($key, $active_path = array()) {
+  function __construct($key, $active_path = array()) {
     $this->_key = $key;
     $this->_path = $active_path;
   }
@@ -183,7 +183,7 @@ class faceted_search_category {
    *   The number of nodes associated to this category within the current
    *   search.
    */
-  function faceted_search_category($count = NULL) {
+  function __construct($count = NULL) {
     $this->_count = $count;
   }
 
@@ -246,8 +246,8 @@ class faceted_search_facet extends faceted_search_filter {
    *   as used to construct the facet from the search text in the module's
    *   implementation of hook_faceted_search_parse().
    */
-  function faceted_search_facet($key, $active_path = array()) {
-    parent::faceted_search_filter($key, $active_path);
+  function __construct($key, $active_path = array()) {
+    parent::__construct($key, $active_path);
   }
 
   /**
@@ -436,7 +436,7 @@ class faceted_search_keyword_and_category extends faceted_search_keyword_categor
    * @param $phrase
    *   String containing the word to search.
    */
-  function faceted_search_keyword_and_category($word) {
+  function __construct($word) {
     $this->_word = $word;
   }
 
@@ -521,7 +521,7 @@ class faceted_search_keyword_phrase_category extends faceted_search_keyword_cate
    * @param $phrase
    *   String containing the phrase to search.
    */
-  function faceted_search_keyword_phrase_category($phrase) {
+  function __construct($phrase) {
     $this->_phrase = $phrase;
   }
 
@@ -605,7 +605,7 @@ class faceted_search_keyword_or_category extends faceted_search_keyword_category
    * @param $words
    *   Array containing the words to search.
    */
-  function faceted_search_keyword_or_category($words) {
+  function __construct($words) {
     $this->_words = $words;
   }
 
@@ -692,7 +692,7 @@ class faceted_search_keyword_not_category extends faceted_search_keyword_categor
    * @param $word
    *   String containing the word to exclude from the search.
    */
-  function faceted_search_keyword_not_category($word) {
+  function __construct($word) {
     $this->_word = $word;
   }
 
@@ -769,8 +769,8 @@ class faceted_search_keyword_filter extends faceted_search_filter {
    * @param $category
    *   Active category of the field.
    */
-  function faceted_search_keyword_filter($type, $label, $category = NULL) {
-    parent::faceted_search_filter($type, isset($category) ? array($category) : array());
+  function __construct($type, $label, $category = NULL) {
+    parent::__construct($type, isset($category) ? array($category) : array());
     $this->_label = $label;
   }
 
@@ -880,7 +880,7 @@ class faceted_search {
    *   Optional for this environment, as fetched from the database. Defaults to
    *   NULL (for new environment).
    */
-  function faceted_search($record = NULL) {
+  function __construct($record = NULL) {
     // Assign default settings, ensuring that all "blanks" are properly filled.
     $this->init();
 
@@ -1370,7 +1370,7 @@ class faceted_search_query {
    *
    * The primary table and field are always assigned to the default part.
    */
-  function faceted_search_query($primary_table = 'node', $primary_table_alias = 'n', $prefixing = TRUE) {
+  function __construct($primary_table = 'node', $primary_table_alias = 'n', $prefixing = TRUE) {
     $this->primary_table_alias = $primary_table_alias;
     $this->tables['default'][$primary_table_alias] = array(
       'table' => $primary_table,

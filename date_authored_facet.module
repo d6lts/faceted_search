@@ -89,8 +89,8 @@ class date_authored_facet extends faceted_search_facet {
   /**
    * Constructor.
    */
-  function date_authored_facet($active_path = array()) {
-    parent::faceted_search_facet('date_authored', $active_path);
+  function __construct($active_path = array()) {
+    parent::__construct('date_authored', $active_path);
   }
 
   function get_id() {
@@ -207,8 +207,8 @@ class date_authored_facet_category extends faceted_search_category {
    *
    * Note: We consider the specified date as within the user's timezone.
    */
-  function date_authored_facet_category($year, $month = NULL, $day = NULL, $count = NULL) {
-    parent::faceted_search_category($count);
+  function __construct($year, $month = NULL, $day = NULL, $count = NULL) {
+    parent::__construct($count);
     $this->_year = $year;
     $this->_month = $month;
     $this->_day = $day;

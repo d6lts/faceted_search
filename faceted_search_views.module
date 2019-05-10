@@ -70,7 +70,7 @@ class faceted_search_views_style extends faceted_search_ui_style {
    * @param $view_name
    *   Name of the view to use with this style.
    */
-  function faceted_search_views_style($view_name) {
+  function __construct($view_name) {
     $this->_name = $view_name;
   }
 

@@ -74,8 +74,8 @@ class field_keyword_filter extends faceted_search_keyword_filter {
    * @param $category
    *   Active category of the field.
    */
-  function field_keyword_filter($type, $label, $category = NULL) {
-    parent::faceted_search_keyword_filter($type, $label, $category);
+  function __construct($type, $label, $category = NULL) {
+    parent::__construct($type, $label, $category);
   }
 
   /**

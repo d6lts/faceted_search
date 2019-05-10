@@ -139,12 +139,12 @@ class author_facet extends faceted_search_facet {
   /**
    * Constructor. Optionally assigns the active user of the facet.
    */
-  function author_facet($excluded_roles = array(), $uid = 0, $name = '') {
+  function __construct($excluded_roles = array(), $uid = 0, $name = '') {
     $active_path = array();
     if (is_numeric($uid) && $name) {
       $active_path[] = new author_facet_category($uid, $name);
     }
-    parent::faceted_search_facet('author', $active_path);
+    parent::__construct('author', $active_path);
     $this->_excluded_roles = $excluded_roles;
   }
 
@@ -241,8 +241,8 @@ class author_facet_category extends faceted_search_category {
   var $_uid = 0;
   var $_name = '';
 
-  function author_facet_category($uid, $name, $count = NULL) {
-    parent::faceted_search_category($count);
+  function __construct($uid, $name, $count = NULL) {
+    parent::__construct($count);
     $this->_uid = $uid;
     $this->_name = $name;
   }
